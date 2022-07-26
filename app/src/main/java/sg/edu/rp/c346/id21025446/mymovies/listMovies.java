@@ -59,6 +59,7 @@ public class listMovies extends AppCompatActivity {
             public void onClick(View view) {
                 filterOn = !filterOn;
 
+
                 if (filterOn) {
                     for (int i = 0; i < al.size(); i++) {
                         if (al.get(i).getRating() != "PG13") {
