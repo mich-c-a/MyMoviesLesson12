@@ -40,7 +40,6 @@ public class editMovie extends AppCompatActivity {
         etGenre.setText(data.getGenre());
         etYear.setText(String.valueOf(data.getYear()));
 
-
         for (int x = 0; x <  spnRate.getChildCount(); x++){
             Spinner selectedBtn = (Spinner) spnRate.getChildAt(x);
             if(selectedBtn.toString() == data.getRating()){

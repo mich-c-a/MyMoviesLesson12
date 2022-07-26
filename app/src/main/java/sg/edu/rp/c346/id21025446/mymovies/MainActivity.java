@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etTitle = findViewById(R.id.etEdtTitle);
+        etTitle = findViewById(R.id.etTitle);
         etGenre = findViewById(R.id.etGenre);
-        etYear = findViewById(R.id.etEdtYear);
+        etYear = findViewById(R.id.etYear);
         btnInsert = findViewById(R.id.btninsrt);
         btnSL = findViewById(R.id.btnSL);
         spnRating = findViewById(R.id.spinnerRating);
@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String title = etTitle.getText().toString();
-                String singer = etGenre.getText().toString();
+                String genre = etGenre.getText().toString();
                 int year = Integer.parseInt(etYear.getText().toString());
                 String rating = spnRating.getSelectedItem().toString();
 
                 DBHelper dbh = new DBHelper(MainActivity.this);
-                long inserted_id = dbh.insertMovie(title, singer, year, rating);
+                long inserted_id = dbh.insertMovie(title, genre, year, rating);
 
                 if (inserted_id != -1){
                     Toast.makeText(MainActivity.this, "Insert successful",
