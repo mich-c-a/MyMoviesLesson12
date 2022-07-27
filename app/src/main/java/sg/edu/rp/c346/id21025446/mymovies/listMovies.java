@@ -2,6 +2,7 @@ package sg.edu.rp.c346.id21025446.mymovies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,6 @@ public class listMovies extends AppCompatActivity {
     Button btnlv;
     ListView lvMovies;
     ArrayList<Movie> al;
-    ArrayList<Movie> alRate;
     ArrayList<Movie> alNotPG13;
     CustomAdapter aa;
     public boolean filterOn = false;
@@ -28,14 +28,12 @@ public class listMovies extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_movies);
 
-        btnlv = findViewById(R.id.btnlv);
         lvMovies = findViewById(R.id.lvMovies);
+        btnlv = findViewById(R.id.btnlv);
 
         al = new ArrayList<Movie>();
-        alRate = new ArrayList<Movie>();
         alNotPG13 = new ArrayList<Movie>();
 
-//        aa = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1,al);
         aa = new CustomAdapter(this,R.layout.row,al);
         lvMovies.setAdapter(aa);
 
@@ -58,16 +56,13 @@ public class listMovies extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 filterOn = !filterOn;
-
-
                 if (filterOn) {
                     for (int i = 0; i < al.size(); i++) {
-                        if (al.get(i).getRating() != "PG13") {
+                        if (!al.get(i).getRating().equals("PG13")  ) {
                             alNotPG13.add(al.get(i));
                         }
                     }
                     al.removeAll(alNotPG13);
-
                 }
                 else {
                     al.clear();

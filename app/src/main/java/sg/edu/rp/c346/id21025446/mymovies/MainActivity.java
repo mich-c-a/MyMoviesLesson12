@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         btnSL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DBHelper dbh = new DBHelper(MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, listMovies.class);
                 startActivity(intent);
             }
